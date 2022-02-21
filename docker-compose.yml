@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+  traefik_net:
+    external: true
+
+services:
+  overleaf-registration:
+    image: ghcr.io/studentiunimi/overleaf-registration
+    container_name: overleaf-registration
+    environment:
+      - CAPTCHA_SERVER_KEY=
+      - CAPTCHA_CLIENT_KEY=
+      - OL_INSTANCE=
+      - OL_ADMIN_EMAIL=
+      - OL_ADMIN_PASSWORD=
+    networks:
+      - traefik_net
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.overleaf-registration.loadbalancer.server.port=8000"

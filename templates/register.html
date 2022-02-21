@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+	<title>StudentiUniMi Overleaf registration</title>
+</head>
+<body>
+	<h1>StudentiUniMi Overleaf registration</h1>
+	
+	<form id="registration-form" method="POST" action="/register">
+		<label for="email-input">Email</label>
+		<input id="email-input" name="email" type="email" />
+		
+		<br />
+		We suggest you to use your @studenti.unimi.it or @unimi.it email.
+		
+		<br />
+		<button class="g-recaptcha"
+		        data-sitekey="{{ CAPTCHA_CLIENT_KEY }}"
+		        data-callback="onSubmit"
+		        data-action="submit">Submit</button>
+	</form>
+	
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script>
+	    function onSubmit(token) {
+	        document.getElementById("registration-form").submit();
+	    }
+	</script>
+</body>
+</html>
