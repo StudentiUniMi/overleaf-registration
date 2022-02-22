@@ -1,9 +1,48 @@
 <html lang="en">
 <head>
 	<title>Overleaf registration: done</title>
+	
+	<link rel="stylesheet" href="/register/static/styles/styles.css">
 </head>
 <body>
-	<h1>Error: {{ error }}</h1>
-	Please retry on the <a href="/register">previous page</a>.
+	<nav class="navbar navbar-default navbar-main">
+		<div class="container-fluid">
+			<div class="navbar-header"><button class="navbar-toggle" ng-init="navCollapsed = true"
+			                                   ng-click="navCollapsed = !navCollapsed" ng-class="{active: !navCollapsed}"
+			                                   aria-label="Toggle Navigation" _msthidden="A" _msthiddenattr="555568" _mstaria-label="314691"><i
+					class="fa fa-bars" aria-hidden="true"></i></button><a class="navbar-title" href="/"
+			                                                              aria-label="Overleaf StudentiUniMi" ng-non-bindable="" _mstaria-label="473811" _msthash="626730"
+			                                                              _msttexthash="473811" style="text-align: left;">Overleaf StudentiUniMi</a></div>
+			<div class="navbar-collapse collapse" collapse="navCollapsed" style="height: 0px;">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/register" _msthash="1056250" _msttexthash="117676">Register</a></li>
+					<li><a href="/login" _msthash="1056251" _msttexthash="71604">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<main class="content content-alt">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+					<div class="card">
+						<div class="page-header">
+							<h1 _msthash="1612143" _msttexthash="71604" style="text-align: left;">StudentiUniMi Overleaf
+							                                                                      registration</h1>
+							<div class="alert alert-danger">
+								<p>Error: {{ error }}</p>
+							</div>
+							<a href="/register">
+								<button class="btn btn-info">Retry</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<script src="/register/static/scripts/scripts.js"></script>
 </body>
 </html>

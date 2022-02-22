@@ -3,7 +3,7 @@
 <head>
 	<title>StudentiUniMi Overleaf registration</title>
 
-	<link rel="stylesheet" href="./styles/styles.css">
+	<link rel="stylesheet" href="/register/static/styles/styles.css">
 </head>
 
 <body>
@@ -17,8 +17,8 @@
 					_msttexthash="473811" style="text-align: left;">Overleaf StudentiUniMi</a></div>
 			<div class="navbar-collapse collapse" collapse="navCollapsed" style="height: 0px;">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/register" _msthash="1056250" _msttexthash="117676">Registrati</a></li>
-					<li><a href="/login" _msthash="1056251" _msttexthash="71604">Accedi</a></li>
+					<li><a href="/register" _msthash="1056250" _msttexthash="117676">Register</a></li>
+					<li><a href="/login" _msthash="1056251" _msttexthash="71604">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -34,10 +34,9 @@
 								registration</h1>
 							<p>We suggest you to use your @studenti.unimi.it or @unimi.it email.</p>
 						</div>
-						<form async-form="login" name="loginForm" action="/login" method="POST"
+						<form async-form="login" name="loginForm" action="/register" method="POST"
 							class="ng-pristine ng-valid-email ng-invalid ng-invalid-required"
-							data-bitwarden-watching="1"><input name="_csrf" type="hidden"
-								value="uiFw9Q1Q-dK574aUB0ZF8hjsGoMkJJSVlEpI" autocomplete="off">
+							id="registration-form">
 							<form-messages for="loginForm" class="ng-isolate-scope">
 								<div class="alert ng-binding ng-hide alert-success" ng-class="{
 		'alert-danger': form.response.message.type == 'error',
@@ -47,16 +46,21 @@
 							</form-messages>
 							<div class="form-group"><input
 									class="form-control ng-pristine ng-isolate-scope ng-empty ng-valid-email ng-invalid ng-invalid-required ng-touched"
-									type="email" name="email" required="" placeholder="email@example.com"
+									type="email" name="email" required="" placeholder="your.email@studenti.unimi.it"
 									ng-model="email" ng-model-options="{ updateOn: 'blur' }" focus="true"
 									_mstplaceholder="329745" style="text-align: left;"><span
 									class="small text-primary ng-hide"
 									ng-show="loginForm.email.$invalid &amp;&amp; loginForm.email.$dirty"
 									_msthash="2219269" _msttexthash="451906" _msthidden="1">Must be an email
 									address</span></div>
-							<div class="actions"><button class="btn-primary btn" type="submit"
-									ng-disabled="loginForm.inflight"><span ng-show="!loginForm.inflight"
-										_msthash="2371122" _msttexthash="94068">Register</span></button>
+							<div class="actions">
+								<button class="btn-primary btn g-recaptcha" type="submit" ng-disabled="loginForm.inflight"
+								        data-sitekey="{{ CAPTCHA_CLIENT_KEY }}" data-callback="onSubmit"
+								        data-action="submit">
+									<span ng-show="!loginForm.inflight" _msthash="2371122" _msttexthash="94068">
+										Register
+									</span>
+								</button>
 							</div>
 						</form>
 					</div>
@@ -65,23 +69,7 @@
 		</div>
 	</main>
 
-	<script src="./scripts/scripts.js"></script>
-
-	<!--
-	<h1>StudentiUniMi Overleaf registration</h1>
-
-	<form id="registration-form" method="POST" action="/register">
-		<label for="email-input">Email</label>
-		<input id="email-input" name="email" type="email" />
-
-		<br />
-		We suggest you to use your @studenti.unimi.it or @unimi.it email.
-
-		<br />
-		<button class="g-recaptcha" data-sitekey="{{ CAPTCHA_CLIENT_KEY }}" data-callback="onSubmit"
-			data-action="submit">Submit</button>
-	</form>
-	-->
+	<script src="/register/static/scripts/scripts.js"></script>
 
 	<script src="https://www.google.com/recaptcha/api.js"></script>
 	<script>
