@@ -37,7 +37,7 @@ def index() -> Response:
 
         ol = overleaf.Overleaf(os.environ.get("OL_INSTANCE"))
         ol.login(os.environ.get("OL_ADMIN_EMAIL"), os.environ.get("OL_ADMIN_PASSWORD"))
-        # ol.register_user(email)
+        ol.register_user(email)
         ol.logout()
         return render_template("done.html", submitted_email=email)
 
