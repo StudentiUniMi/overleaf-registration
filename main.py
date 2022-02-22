@@ -2,7 +2,7 @@ import re
 import os
 
 import requests
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, send_from_directory
 
 import overleaf
 
@@ -37,6 +37,11 @@ def index() -> Response:
 
         ol = overleaf.Overleaf(os.environ.get("OL_INSTANCE"))
         ol.login(os.environ.get("OL_ADMIN_EMAIL"), os.environ.get("OL_ADMIN_PASSWORD"))
-        ol.register_user(email)
+        # ol.register_user(email)
         ol.logout()
         return render_template("done.html", submitted_email=email)
+
+
+@app.route("/register/static/<path:path>", methods=["GET"])
+def serve_static_files(path) -> Response:
+    return send_from_directory("static", path)
