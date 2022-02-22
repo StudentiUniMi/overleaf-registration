@@ -4,6 +4,7 @@
 	<title>StudentiUniMi Overleaf registration</title>
 
 	<link rel="stylesheet" href="/register/static/styles/styles.css">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -37,26 +38,18 @@
 						<form async-form="login" name="loginForm" action="/register" method="POST"
 							class="ng-pristine ng-valid-email ng-invalid ng-invalid-required"
 							id="registration-form">
-							<form-messages for="loginForm" class="ng-isolate-scope">
-								<div class="alert ng-binding ng-hide alert-success" ng-class="{
-		'alert-danger': form.response.message.type == 'error',
-		'alert-success': form.response.message.type != 'error'
-		}" ng-show="!!form.response.message" ng-bind-html="form.response.message.text"></div>
-								<div ng-transclude=""></div>
-							</form-messages>
-							<div class="form-group"><input
+							<div class="form-group">
+								<input
 									class="form-control ng-pristine ng-isolate-scope ng-empty ng-valid-email ng-invalid ng-invalid-required ng-touched"
 									type="email" name="email" required="" placeholder="your.email@studenti.unimi.it"
 									ng-model="email" ng-model-options="{ updateOn: 'blur' }" focus="true"
-									_mstplaceholder="329745" style="text-align: left;"><span
-									class="small text-primary ng-hide"
-									ng-show="loginForm.email.$invalid &amp;&amp; loginForm.email.$dirty"
-									_msthash="2219269" _msttexthash="451906" _msthidden="1">Must be an email
-									address</span></div>
+									_mstplaceholder="329745" style="text-align: left;" />
+							</div>
+							<div class="form-group">
+								<div class="g-recaptcha" data-sitekey="{{ CAPTCHA_CLIENT_KEY }}"></div>
+							</div>
 							<div class="actions">
-								<button class="btn-primary btn g-recaptcha" type="submit" ng-disabled="loginForm.inflight"
-								        data-sitekey="{{ CAPTCHA_CLIENT_KEY }}" data-callback="onSubmit"
-								        data-action="submit">
+								<button class="btn-primary btn g-recaptcha" type="submit" ng-disabled="loginForm.inflight">
 									<span ng-show="!loginForm.inflight" _msthash="2371122" _msttexthash="94068">
 										Register
 									</span>
@@ -70,13 +63,6 @@
 	</main>
 
 	<script src="/register/static/scripts/scripts.js"></script>
-
-	<script src="https://www.google.com/recaptcha/api.js"></script>
-	<script>
-		function onSubmit(token) {
-			document.getElementById("registration-form").submit();
-		}
-	</script>
 </body>
 
 </html>
