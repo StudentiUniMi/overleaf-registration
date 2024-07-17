@@ -4,7 +4,7 @@ This approach uses container to container communication. This requires that the 
 
 EmailHandler.promises.sendEmail('registered', { 
 
-is missing a await. 
+is missing an await. 
 
 await EmailHandler.promises.sendEmail('registered', { 
 
