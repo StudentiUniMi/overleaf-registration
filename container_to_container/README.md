@@ -8,7 +8,7 @@ is missing an await.
 
 await EmailHandler.promises.sendEmail('registered', { 
 
-I fixed the file out side an mount it in the overleaf compose.yaml via
+I fixed the file outside of the container and mount it into the overleaf container (i.e. modify compose.yaml) via
     volumes:
       - /root/overleafserver/UserRegistrationHandler.js:/overleaf/services/web/app/src/Features/User/UserRegistrationHandler.js
 
@@ -18,14 +18,13 @@ We can block users via the tools/blocked_users.json. And we allow domains for to
 
 # No google
 
-I replaced the google captcha because of data privacy reasons... Just, kidding I wasn't able to make it run. Thus I replaced by a python solution. 
+I replaced the google captcha because of data privacy reasons... Just, kidding I wasn't able to make it run. Thus I replaced it by a python solution. 
 
 # How to use this version
 
-Set a secret key in tools/secret_key.json. Then build the docker image with make_image.sh.
+Set a secret key in tools/secret_key.json.
 
-Set tools/allowed_domains.json
-
+Set tools/allowed_domains.json to your needs. 
 
 Make sure that in tools/main.py is set correctly for your setup:
 
@@ -43,6 +42,6 @@ And then
 
 up.sh
 
-Don't forget to set you proxy correctly. An example for nginx see nginx.conf.
+Don't forget to set your proxy correctly. An example for nginx see nginx.conf.
 
 A full working setup can be found here https://github.com/davrot/overleaf 
