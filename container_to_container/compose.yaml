@@ -1,0 +1,20 @@
+services:
+  overleafregister:
+    image: "overleafregister_image"
+    container_name: overleafregister
+    hostname: overleafregister
+    restart: always
+
+    networks:
+      - overleaf-network
+
+    volumes:
+      - overleaf_register:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  overleaf_register:
+
+networks:
+  overleaf-network:
+    external: true

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register your overleaf account</title>
+
+</head>
+<body>
+    <header>
+        <img src="/register/static/logo.png" alt="Logo" style="max-width: 200px;">
+    </header>
+
+    <h1>Register your overleaf account</h1>
+    <form method="POST" id="demo-form">
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <p>
+        <div>
+            <label for="captcha">CAPTCHA:</label>
+            <br>
+            <img src="data:image/png;base64,{{ captcha_image }}" alt="CAPTCHA">
+            <br>
+            <input type="text" id="captcha" name="captcha" required>
+        </div>
+        <p>
+        <button type="submit">Register</button>
+    </form>
+
+<h1>What is this?</h1>
+This overleaf server is a side project for me.<br>
+Thus, please don't expect a perfectly hosted system with zero downtime. It runs on a ZfN cloud machine.<br>
+If you want to help me maintain this system, you are more than welcome.<br>
+I will do my best but server maintainance is not one of my core duties.<br>
+If you have questions, send me an email: davrot@uni-bremen.de.<br>
+
+<h1>Who can register?</h1>
+You can register if you have a University of Bremen email address ending in uni-bremen.de. <br>
+Or someone has invited you to a project. In the latter case you don't need an email address from Univesity of Bremen.
+
+<h1>Allgemeines</h1>
+<a href="https://www.uni-bremen.de/impressum">Impressum</a><br>
+<a href="https://www.uni-bremen.de/datenschutz">Datenschutz</a><br>
+<a href="https://www.uni-bremen.de/notfall">Notfall</a>
+
+</body>
+</html>
