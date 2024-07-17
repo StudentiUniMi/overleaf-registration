@@ -43,4 +43,6 @@ And then
 
 up.sh
 
+Don't forget to set you proxy correctly. An example for nginx see nginx.conf.
+
 A full working setup can be found here https://github.com/davrot/overleaf 
