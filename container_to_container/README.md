@@ -27,5 +27,20 @@ Set a secret key in tools/secret_key.json. Then build the docker image with make
 Set tools/allowed_domains.json
 
 
+Make sure that in tools/main.py is set correctly for your setup:
+
+container_name_mongo:str = "overleafmongo"
+
+port_mongo: int = 27017
+
+container_name_overleaf: str = "overleafserver"
+
+When you are happy with the setting, run:
+
+make_image.sh
+
+And then 
+
+up.sh
 
 A full working setup can be found here https://github.com/davrot/overleaf 
