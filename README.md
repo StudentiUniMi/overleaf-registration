@@ -28,8 +28,8 @@ The Docker container needs all the following environment variables to function p
 
 | Environment variable | Description                                          |
 |----------------------|------------------------------------------------------|
-| `CAPTCHA_SERVER_KEY` | reCAPTCHA v3 server key                              |
-| `CAPTCHA_CLIENT_KEY` | reCAPTCHA v3 client key                              |
+| `CAPTCHA_SERVER_KEY` | reCAPTCHA v2 server key                              |
+| `CAPTCHA_CLIENT_KEY` | reCAPTCHA v2 client key                              |
 | `OL_INSTANCE`        | Overleaf self-hosted instance (without trailing `/`) |
 | `OL_ADMIN_EMAIL`     | Overleaf administrator account email                 |
 | `OL_ADMIN_PASSWORD`  | Overleaf administrator account password              |
